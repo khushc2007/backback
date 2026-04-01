@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: callsync-backend
+    env: node
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+      - key: CALENDAR_ID
+        sync: false
