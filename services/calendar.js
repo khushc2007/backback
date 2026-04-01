@@ -1,8 +1,9 @@
 const { google } = require('googleapis');
 
 function getCalendarClient() {
+  const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS_JSON);
   const auth = new google.auth.GoogleAuth({
-    keyFile: process.env.GOOGLE_APPLICATION_CREDENTIALS || './credentials.json',
+    credentials,
     scopes: ['https://www.googleapis.com/auth/calendar'],
   });
   return google.calendar({ version: 'v3', auth });
